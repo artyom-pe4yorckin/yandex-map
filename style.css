@@ -1,0 +1,123 @@
+:root{
+  --blue: #253b62;
+  --light-blue: #32b3e9;
+  --orange: #ff9e00;
+  --gray: #929292;
+}
+html{
+  font-size: 15px;
+  font-family: 'callibri', sans-serif;
+}
+button{
+  border: 1px solid var(--gray);
+  color: var(--gray);
+  background: white;
+  padding: 1em 2em;
+  cursor: pointer;
+}
+button.active{
+  background: var(--orange);
+  color: white;
+  border: none;
+}
+.btn-wrapper{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 1rem;
+}
+#map-data{
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
+.city-wrapper{
+  display: grid;
+}
+.city-wrapper .city-list{
+  grid-area: 1/1;
+  background: white;
+  display: none;
+}
+.city-wrapper .city-list.active{
+  display: block;
+}
+.city-list .addres{
+  color: var(--blue);
+  font-weight: bold;
+}
+.phone-wrapper{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.phone-wrapper>*{
+  margin: 0;
+}
+.email-wrapper{
+  color: var(--light-blue);
+}
+
+details{
+  padding: 1rem;
+  border-top: 1px solid var(--gray);
+}
+details:last-child{
+  border-bottom: 1px solid var(--gray);
+}
+summary{
+  color: var(--blue);
+  font-weight: bold;
+}
+details[open] summary{
+  color: var(--orange);
+}
+
+.circle-placemark{ 
+  font-size: 20px;
+  background: var(--blue);
+  border: 2px solid white;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+.circle-placemark:hover{
+  box-shadow: 10px 10px 10px var(--blue);
+}
+
+[class*='balloon']{
+  box-shadow: none !important;
+}
+[class*='balloon__layout'], [class*='balloon__content']{
+  background: var(--blue) !important;
+  color: white;
+}
+[class*='balloon__tail']:after{
+  background: var(--blue) !important;
+  font-weight: bold;
+}
+[class*='balloon__content'] .title{
+  color: var(--orange);
+}
+[class*='balloon__close-button']{
+  position: relative;
+  background: none !important;
+  display: grid !important;
+  grid-template-columns: 1fr;
+  align-items: center;
+  justify-items: center;
+}
+[class*='balloon__close-button']:after, [class*='balloon__close-button']:before{
+  content: "";
+  grid-area: 1/1;
+  height: 2px;
+  width: 20px;
+  background: white;
+  display: block;
+  transform-origin: center;
+}
+[class*='balloon__close-button']:after{
+  transform: rotate(45deg);
+}
+[class*='balloon__close-button']:before{
+  transform: rotate(135deg);
+}
