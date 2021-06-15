@@ -73,13 +73,17 @@ details[open] summary{
 }
 
 .circle-placemark{ 
-  font-size: 20px;
+  font-size: 1rem;
   background: var(--blue);
   border: 2px solid white;
   width: 25px;
   height: 25px;
   border-radius: 50%;
   transform: translate(-50%, -50%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .circle-placemark:hover{
   box-shadow: 10px 10px 10px var(--blue);
