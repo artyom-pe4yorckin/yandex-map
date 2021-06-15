@@ -51,16 +51,8 @@ function ready() {
          */
         clusterHideIconOnBalloonOpen: false,
         geoObjectHideIconOnBalloonOpen: false,
-      },
-      {
-        iconLayout: commonContent,//форма кликабельной области placemark
-        iconShape: {
-          type: 'Circle',
-          coordinates: [0, 0],//центр круга
-          radius: 25//радиус
-        }
-      }
-      )
+        clusterIconLayout: commonContent,
+      })
 
     let myCollection = new ymaps.GeoObjectCollection();
 
@@ -137,7 +129,6 @@ function ready() {
       return [(arr[0][0] + arr[1][0]) / 2, (arr[0][1] + arr[1][1]) / 2]
     }
 
-    console.log("до")
     //добавление точек на карту
     function addPlacemark(coords, content) {
       function getP(arr) {
@@ -178,8 +169,6 @@ function ready() {
       myMap.setBounds(clusterer.getBounds(), {
         checkZoomRange: true
       });
-    }
-    console.log("после")
-      
+    } 
   }
 }
