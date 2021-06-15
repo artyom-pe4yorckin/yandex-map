@@ -12,7 +12,6 @@
   <?php
   $json = json_decode(file_get_contents("offices.json"), true);
   ?>
-  <div id="map-id" style="width: 100%; height: 400px"></div>
   <div id="map-data">
     <div class="country-city">
       <div class="btn-wrapper">
@@ -52,7 +51,7 @@
         }
       ?></div>
     </div>
-    <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A59ab7d8a84a88707e95dd0331c6fbbdd3f5f0c9eadd88a293893cdfc8fe3af3d&source=constructor" width="100%" height="750" frameborder="0"></iframe>
+    <div id="map-id"></div>
   </div>
 </body>
 </html>
