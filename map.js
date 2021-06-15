@@ -3,7 +3,7 @@ function ready() {
   let btnWrapper = document.querySelector(".btn-wrapper");
   let countries = btnWrapper.querySelectorAll(".btn-wrapper [data-country]");
   let cityWrapper = document.querySelector(".city-wrapper");
-  let offices = document.querySelectorAll(".city-list details");
+  let offices = document.querySelectorAll(".city-list .office");
   countries[0].classList.add("active");
   let defaultCountry = countries[0].dataset.country;
   document.querySelector(`.city-list.${defaultCountry}`).classList.add("active");
@@ -86,13 +86,16 @@ function ready() {
       });
 
     function openBalloon() {
-      let city = this.querySelector("summary").textContent;
+      let city = this.closest("details").querySelector("summary").textContent;
       let addres = this.querySelector(".addres").textContent;
-      let baloonContent = this.querySelector(".office").innerHTML;
+      let baloonContent = this.innerHTML;
       ymaps.geocode(`${city}, ${addres}`).then(
         function (res) {
           let coords = getCitycenter(res.geoObjects.get(0).properties.getAll().boundedBy);
           myMap.balloon.open(coords, { content: baloonContent }, { closeButton: true });
+          myMap.container.fitToViewport()
+          myMap.setZoom(15);
+          myMap.setCenter(coords);
         },
         function (err) {
           // Обработка ошибки.
